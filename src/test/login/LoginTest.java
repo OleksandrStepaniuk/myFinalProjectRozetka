@@ -47,11 +47,11 @@ public class LoginTest {
 // 1-st negative press  Войти
         login.pressButton(var.vhodButton);
         Thread.sleep(3000);
-        Assert.assertTrue(login.findElement(var.passwordUser).isDisplayed(),
+        Assert.assertTrue(login.findElement(var.po4taUserWrong).isDisplayed(),
                 "ololo");
-        Thread.sleep(3000);
-        login.findElement(var.passwordUserWrong);
-        Thread.sleep(3000);
+        Assert.assertTrue(login.findElement(var.passwordUserWrong).isDisplayed(),
+                "ololo");
+        Thread.sleep(2000);
 
     }
 }
