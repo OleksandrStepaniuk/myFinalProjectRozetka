@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Rozetka.iml" filepath="$PROJECT_DIR$/Rozetka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OdooTest.iml" filepath="$PROJECT_DIR$/OdooTest.iml" />
     </modules>
   </component>
 </project>

@@ -1,19 +1,18 @@
-/**
- * Created by admin_alex on 3/14/2017.
- */
+
 public class LoginVar {
-    public static String presentPopUp = "//div[@id='SubscribePushNotificationPanel']";
-    public static String closePopUp = "//div[@id='SubscribePushNotificationPanel']/div/div[3]";
-    public static String voitiPrivatCabinet = "//span[@id='header_user_menu_parent']";
-    public static String loginRegisterPopUp = ".//*[@id='user-popup-parent53004']/div/div";
-    public static String vhodButton = "//button[text()='Войти']";
-    public static String po4taUser = "//input[@name='login']";
-    public static String passwordUser = "//input[@name='password'][@style='']";
-    public static String po4taUserWrong = "//input[@name='login'][@style='background-color: rgb(255, 214, 214);']";
-    public static String passwordUserWrong = "//input[@name='password'][@style='background-color: rgb(255, 214, 214);']";
-//    public static String = "";
-//    public static String = "";
-//    public static String = "";
-    //Подписаться на уведомления от rozetka.com.ua
-    //div[@id='SubscribePushNotificationPanel']
+    public static String signIn  = ".//*[@id='top_menu']/li[4]/a/b";
+    public static String emailSignin = "//input[@id='login']";
+    public static String passwordSignin = "//input[@id='password']";
+    public static String login = "//button[text()='Log in']";
+    public static String header1 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[1]/a/span";
+    public static String header2 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[2]/a/span";
+    public static String header3 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[3]/a/span";
+    public static String header4 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[4]/a/span";
+    public static String header5 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[5]/a/span";
+    public static String header6 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[6]/a/span";
+    public static String header7 = ".//*[@id='oe_main_menu_placeholder']/ul[1]/li[7]/a/span";
+
+    public static String goToSystemButton = "//i[@id='oe_attendance_sign_in_out_icon']";
+    public static String messagingInstant = "//i[@id='oe_topbar_imbutton_icon']";
+
 }

@@ -1,5 +1,5 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -8,17 +8,17 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by admin_alex on 3/14/2017.
+ * Created by Oleksandr Stepaniuk on 3/14/2017.
  */
 public class LoginTest {
     private WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("http://rozetka.com.ua");
+        driver.get("http://erpsystem.jaya-test.com/");
     }
 
     @AfterMethod
@@ -27,31 +27,27 @@ public class LoginTest {
     }
 
     @Test
-    public void one() throws InterruptedException {
+    public void headerTest() throws InterruptedException {
         LoginMethods login = new LoginMethods(driver);
         LoginVar var = new LoginVar();
-// assert popUp subscribe
-        Assert.assertTrue(login.findElement(var.presentPopUp).isDisplayed(),
-                "No popUp mail notification");
-// click closed button popUp
-        login.pressButton(var.closePopUp);
-// assert field войдите в личный кабинет
-        Assert.assertTrue(login.findElement(var.voitiPrivatCabinet).isDisplayed(),
-                "No popUp mail notification");
-// click voiti
-        login.pressButton(var.voitiPrivatCabinet);
-        Thread.sleep(2000);
-// assert popUp login & register
-        //Assert.assertTrue(login.findElement(var.loginRegisterPopUp).isDisplayed(),
-        //      "No popUp mail notification");
-// 1-st negative press  Войти
-        login.pressButton(var.vhodButton);
-        Thread.sleep(3000);
-        Assert.assertTrue(login.findElement(var.po4taUserWrong).isDisplayed(),
-                "ololo");
-        Assert.assertTrue(login.findElement(var.passwordUserWrong).isDisplayed(),
-                "ololo");
-        Thread.sleep(2000);
+
+        login.pressButton(LoginVar.signIn);
+        login.sendK("ostepaniuk@jayadigital.com", LoginVar.emailSignin);
+        login.sendK("Fkbyf1107", LoginVar.passwordSignin);
+        login.pressButton(LoginVar.login);
+        //header menu assert
+        Assert.assertEquals("Messaging", login.assertText(LoginVar.header1));
+        Assert.assertEquals("Project", login.assertText(LoginVar.header2));
+        Assert.assertEquals("Marketing", login.assertText(LoginVar.header3));
+        Assert.assertEquals("Human Resources", login.assertText(LoginVar.header4));
+        Assert.assertEquals("Knowledge", login.assertText(LoginVar.header5));
+        Assert.assertEquals("Reporting", login.assertText(LoginVar.header6));
+        Assert.assertEquals("Website", login.assertText(LoginVar.header7));
+        //Thread.sleep(5000);
+        Assert.assertTrue(login.clickWhenReady((LoginVar.goToSystemButton), 1).isDisplayed(),
+                "Not dispalyed button loginSystem");
+        Assert.assertTrue(login.clickWhenReady((LoginVar.messagingInstant), 1).isDisplayed(),
+                "Not dispalyed button message");
 
     }
 }
