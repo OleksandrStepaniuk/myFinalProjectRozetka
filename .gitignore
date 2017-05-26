@@ -2,4 +2,4 @@ gitignore
 .idea/workspace.xml
 OdooTest.iml
 global gitignore
-
+Global .gitignore for all repositories
