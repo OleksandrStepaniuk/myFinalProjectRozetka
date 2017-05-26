@@ -3,3 +3,4 @@ gitignore
 OdooTest.iml
 global gitignore
 Global .gitignore for all repositories
+pom.xml
